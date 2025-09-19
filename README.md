@@ -1,6 +1,6 @@
 # wtf-bitnami-redis
 
-A drop-in replacement for Bitnami Redis Docker images, specifically designed for GitHub service containers and CI/CD environments. This image wraps the official Redis image and provides password authentication through environment variables.
+A replacement for Bitnami Redis Docker images, specifically designed for GitHub service containers and CI/CD environments. This image wraps the official Redis image and provides password authentication through environment variables.
 
 ## Why this exists
 
@@ -36,7 +36,7 @@ services:
       REDIS_PASSWORD: testpassword
     ports:
       - 6379:6379
-    options: --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
+    options: --health-cmd "redis-cli -a testpassword ping" --health-interval 10s --health-timeout 5s --health-retries 5
 ```
 
 ### Docker Compose
